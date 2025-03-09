@@ -1,67 +1,4 @@
-/*
-function getHumanChoice() {
-    let choice = prompt("Let's play rock (r), paper (p), scissors (s)! Choice: ");
-
-    if (choice === 'r') {
-        getComputerChoice();
-    }
-
-    function getComputerChoice(choice) {
-        if (choice === 'r') {
-            let random = Math.random();
-            if (random >= 0 || random <= 0.165) {
-                return console.log('You lost. Paper win against rock.')
-            } else if (random >= 0.165 || random <= 0.33) {
-                return console.log('You lost. Scissors win against rock... ?')
-            }
-        }
-    }
-
-    return choice;
-}
-*/
-
-/*
-function game() {
-    let choice = prompt("Let's play rock, paper, scissors: ");
-    if (choice === "r") {
-        let randomChoice = Math.random();
-        if (randomChoice >= 0 && randomChoice <= 0.33) {
-            return console.log("Rock. Draw");
-        } else if (randomChoice >= 0.33 && randomChoice <= 0.66) {
-            return console.log("You lost. Paper beats rock.")
-        } else {
-            return console.log("You won. Rock beats scissors.");
-        }
-    }
-
-    else if (choice === "p") {
-        let randomChoice = Math.random();
-        if (randomChoice >= 0 && randomChoice <= 0.33) {
-            return console.log("You won. Paper beats rock.");
-        } else if (randomChoice >= 0.33 && randomChoice <= 0.66) {
-            return console.log("Paper. Draw.");
-        } else {
-            return console.log("You lost. Scissors beats paper.");
-        }
-    }
-
-    else if (choice === "s") {
-        let randomChoice = Math.random();
-        if (randomChoice >= 0 && randomChoice <= 0.33) {
-            return console.log("You lost. Rock beats scissors.");
-        } else if (randomChoice >= 0.33 && randomChoice <= 0.66) {
-            return console.log("You won. Scissors beats paper");
-        } else {
-            return console.log("Scissors. Draw.");
-        }
-    }
-
-}
-
-game()
-*/
-
+/* Gets a random choice based on a random number.*/
 
 function getComputerChoice() {
     let randomChoice = Math.random();
@@ -77,6 +14,8 @@ function getComputerChoice() {
         return "scissors";
     }
 }
+
+/* Based on user's input, returns a string.*/
 
 function getHumanChoice() {
     let choice = prompt("Let's play ROCK (R), PAPER (P), SCISSORS (S): ").toLowerCase();
@@ -94,7 +33,7 @@ function getHumanChoice() {
     }
 }
 
-
+/* Main game function. */
 
 function playGame() {
     let humanScore = 0
