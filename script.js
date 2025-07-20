@@ -81,3 +81,45 @@ function playGame() {
         console.log("\n- Round draw. -\n");
     }
 }
+
+const rock = document.querySelector(".rock");
+rock.addEventListener("click", () => {
+    let humanChoice = 'rock';
+    let computerChoice = getComputerChoice();
+
+    if (computerChoice == 'scissors') {
+        console.log("You won.");
+    } else if (computerChoice == 'paper') {
+        console.log("You lose.");
+    } else {
+        console.log("Draw.");
+    }
+});
+
+const paper = document.querySelector(".paper");
+paper.addEventListener("click", () => {
+    let humanChoice = 'paper';
+    let computerChoice = getComputerChoice();
+
+    if (computerChoice == 'rock') {
+        console.log("You won.");
+    } else if (computerChoice == 'scissors') {
+        console.log("You lose");
+    } else {
+        console.log("Draw.");
+    }
+});
+
+const scissors = document.querySelector(".scissors");
+scissors.addEventListener("click", () => {
+    let humanChoice = 'scissors';
+    let computerChoice = getComputerChoice();
+
+    if (computerChoice == 'paper') {
+        console.log("You won.");
+    } else if (computerChoice == 'rock') {
+        console.log("You lose");
+    } else {
+        console.log("Draw.");
+    }
+});
