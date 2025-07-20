@@ -2,4 +2,12 @@ body {
 	display: flex;
 	justify-content: center;
 	align-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+#container {
+	display: flex;
+	flex-direction: row;
+	gap: 15px;
 }
