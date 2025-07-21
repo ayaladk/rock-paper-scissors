@@ -1,4 +1,22 @@
-/* Gets a random choice based on a random number.*/
+let playerScore = 0;
+let computerScore = 0;
+let roundsPlayed = 0;
+let gameOver = false;
+
+const roundResult = document.querySelector("#round-result");
+const scoreDisplay = document.querySelector("#score");
+const finalMessage = document.querySelector("#final-message");
+
+const buttons = document.querySelectorAll(".game-button");
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        let buttonTextContent = button.textContent;
+        choiceButton(buttonTextContent)
+    });
+});
+
+const resetBtn = document.querySelector("#resetBtn");
+resetBtn.addEventListener("click", () => resetButton());
 
 function getComputerChoice() {
     let randomChoice = Math.random();
@@ -7,25 +25,47 @@ function getComputerChoice() {
     else return "scissors";
 }
 
-const buttons = document.querySelectorAll("button");
-buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        let buttonTextContent = button.textContent;
-        choiceButton(buttonTextContent)
-    });
-});
+function resetButton() {
+    playerScore = 0;
+    computerScore = 0;
+    roundsPlayed = 0;
+    scoreDisplay.textContent = `Player: ${playerScore} | Computer: ${computerScore}`
+    finalMessage.textContent = "";
+    gameOver = false;
+}
 
 function choiceButton(choice) {
+    if (gameOver) return;
+
     let computerChoice = getComputerChoice();
+    let resultText = "";
+
     if (choice === "rock" && computerChoice === "scissors" ||
         choice === "paper" && computerChoice === "rock" ||
         choice === "scissors" && computerChoice === "paper") {
-        console.log("You won.");
+        playerScore++;
+        resultText = `You won! ${choice} beats ${computerChoice}.`;
     }
     else if (choice == computerChoice) {
-        console.log("Draw.");
+        resultText = `Draw. You both chose ${choice}.`;
     }
     else {
-        console.log("You lose.");
+        computerScore++;
+        resultText = `You lose! ${computerChoice} beats ${choice}.`;
+    }
+
+    roundsPlayed++;
+
+    roundResult.textContent = resultText;
+    scoreDisplay.textContent = `Player: ${playerScore} | Computer: ${computerScore}`;
+
+    if (playerScore === 5 || computerScore === 5) {
+        gameOver = true;
+        if (playerScore === 5) {
+            finalMessage.textContent = "You won!";
+        }
+        else if (computerScore === 5) {
+            finalMessage.textContent = "You lose!";
+        }
     }
 }
