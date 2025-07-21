@@ -11,3 +11,9 @@ body {
 	flex-direction: row;
 	gap: 15px;
 }
+
+div#results {
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
