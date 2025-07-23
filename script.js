@@ -18,20 +18,21 @@ buttons.forEach((button) => {
 const resetBtn = document.querySelector("#resetBtn");
 resetBtn.addEventListener("click", () => resetButton());
 
+function resetButton() {
+    playerScore = 0;
+    computerScore = 0;
+    roundsPlayed = 0;
+    scoreDisplay.textContent = `Player: ${playerScore} | Computer: ${computerScore}`;
+    roundResult.textContent = "";
+    finalMessage.textContent = "";
+    gameOver = false;
+}
+
 function getComputerChoice() {
     let randomChoice = Math.random();
     if (randomChoice < 0.34) return "rock";
     else if (randomChoice < 0.67) return "paper";
     else return "scissors";
-}
-
-function resetButton() {
-    playerScore = 0;
-    computerScore = 0;
-    roundsPlayed = 0;
-    scoreDisplay.textContent = `Player: ${playerScore} | Computer: ${computerScore}`
-    finalMessage.textContent = "";
-    gameOver = false;
 }
 
 function choiceButton(choice) {
@@ -69,3 +70,4 @@ function choiceButton(choice) {
         }
     }
 }
+
